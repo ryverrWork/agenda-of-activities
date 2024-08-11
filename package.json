@@ -1,0 +1,30 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "@popperjs/core": "^2.11.6",
+        "@rollup/plugin-html": "^1.0.3",
+        "axios": "^1.6.4",
+        "bootstrap": "^5.2.3",
+        "glob": "^11.0.0",
+        "laravel-vite-plugin": "^1.0",
+        "sass": "^1.56.1",
+        "vite": "^5.0"
+    },
+    "dependencies": {
+        "@form-validation/bundle": "^2.4.0",
+        "@form-validation/plugin-auto-focus": "^2.4.0",
+        "@form-validation/plugin-bootstrap5": "^2.4.0",
+        "@form-validation/plugin-framework": "^2.4.0",
+        "flag-icons": "^7.2.3",
+        "hammerjs": "^2.0.8",
+        "node-waves": "^0.7.6",
+        "perfect-scrollbar": "^1.5.5",
+        "remixicon": "^4.3.0",
+        "typeahead.js": "^0.11.1"
+    }
+}
