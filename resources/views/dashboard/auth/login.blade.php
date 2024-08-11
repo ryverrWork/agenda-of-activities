@@ -3,9 +3,9 @@
     $customizerHidden = 'customizer-hide';
 @endphp
 
-@extends('layouts/layoutMaster')
+@extends('layouts/blankLayout')
 
-@section('title', 'Login Basic - Pages')
+@section('title', 'Login')
 
 @section('vendor-style')
     @vite(['resources/assets/vendor/libs/@form-validation/form-validation.scss'])
@@ -41,14 +41,18 @@
                     <!-- /Logo -->
 
                     <div class="card-body mt-1">
-                        <h4 class="mb-1">Welcome to {{ config('variables.templateName') }}! 👋</h4>
-                        <p class="mb-5">Please sign-in to your account and start the adventure</p>
+                        <h4 class="mb-1">Selamat datang di {{ config('variables.templateName') }}! 👋</h4>
+                        <p class="mb-5">Silakan masuk ke akun Anda dan mulai atur agenda kegiatan anda</p>
 
-                        <form id="formAuthentication" class="mb-5" action="{{ url('/') }}" method="GET">
+                        <form id="formAuthentication" class="mb-5" action="{{ route('dashboard.login') }}" method="POST">
+                            @csrf
                             <div class="form-floating form-floating-outline mb-5">
-                                <input type="text" class="form-control" id="email" name="email-username"
-                                    placeholder="Enter your email or username" autofocus>
-                                <label for="email">Email or Username</label>
+                                <input type="text" class="form-control" id="email" name="email"
+                                    placeholder="Masukkan email atau username Anda" autofocus>
+                                <label for="email">Email atan Username</label>
+                                @error('email')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="mb-5">
                                 <div class="form-password-toggle">
@@ -61,52 +65,23 @@
                                         </div>
                                         <span class="input-group-text cursor-pointer"><i class="ri-eye-off-line"></i></span>
                                     </div>
+                                    @error('password')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="mb-5 d-flex justify-content-between mt-5">
                                 <div class="form-check mt-2">
                                     <input class="form-check-input" type="checkbox" id="remember-me">
                                     <label class="form-check-label" for="remember-me">
-                                        Remember Me
+                                        Ingat Saya
                                     </label>
                                 </div>
-                                <a href="{{ url('auth/forgot-password-basic') }}" class="float-end mb-1 mt-2">
-                                    <span>Forgot Password?</span>
-                                </a>
                             </div>
                             <div class="mb-5">
-                                <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+                                <button class="btn btn-primary d-grid w-100" type="submit">Masuk</button>
                             </div>
                         </form>
-
-                        <p class="text-center">
-                            <span>New on our platform?</span>
-                            <a href="{{ url('auth/register-basic') }}">
-                                <span>Create an account</span>
-                            </a>
-                        </p>
-
-                        <div class="divider my-5">
-                            <div class="divider-text">or</div>
-                        </div>
-
-                        <div class="d-flex justify-content-center gap-2">
-                            <a href="javascript:;" class="btn btn-icon rounded-circle btn-text-facebook">
-                                <i class="tf-icons ri-facebook-fill"></i>
-                            </a>
-
-                            <a href="javascript:;" class="btn btn-icon rounded-circle btn-text-twitter">
-                                <i class="tf-icons ri-twitter-fill"></i>
-                            </a>
-
-                            <a href="javascript:;" class="btn btn-icon rounded-circle btn-text-github">
-                                <i class="tf-icons ri-github-fill"></i>
-                            </a>
-
-                            <a href="javascript:;" class="btn btn-icon rounded-circle btn-text-google-plus">
-                                <i class="tf-icons ri-google-fill"></i>
-                            </a>
-                        </div>
                     </div>
                 </div>
                 <!-- /Login -->
