@@ -12,25 +12,20 @@ class Activity extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'date',
         'day',
+        'time',
         'name',
         'location',
         'person_in_charge',
         'phone_number',
         'status',
-        'file_url'
+        'file_url',
+        'approved_by'
     ];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
+    public function approvedBy()
     {
-        return [
-            'date' => 'date',
-            'time' => 'time',
-        ];
+        return $this->belongsTo(User::class, 'approved_by');
     }
 }

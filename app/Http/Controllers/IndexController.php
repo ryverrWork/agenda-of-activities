@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Activity;
 use Illuminate\View\View;
 
 class IndexController extends Controller
@@ -11,8 +12,10 @@ class IndexController extends Controller
      */
     public function index(): View
     {
-        return view('index', [
+        $activities = Activity::where('status', 'approved')->orderBy('date', 'desc')->get();
 
+        return view('index', [
+            'activities' => $activities
         ]);
     }
 }
