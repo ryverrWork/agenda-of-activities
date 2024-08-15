@@ -42,7 +42,7 @@
                 <div class="container d-flex justify-content-center">
                     @if ($settings)
                         <img src="{{ Storage::url($settings->logo_url) }}" alt="Centered Image"
-                            class="img-fluid logo-img mb-5">
+                            class="img-fluid logo-img mb-3">
                     @endif
                 </div>
                 <div class="table100">
@@ -57,6 +57,7 @@
                                 <th class="column6">PIC</th>
                                 <th class="column7">No HP</th>
                                 <th class="column8">Undangan</th>
+                                <th class="column9">Ditinjau Oleh</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -74,6 +75,7 @@
                                             download="{{ basename($activity->file_url) }}" title="Download">
                                             <i class="ri-download-line"></i> Download
                                         </a></td>
+                                    <td class="column9">{{ $activity->approvedBy->name }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
