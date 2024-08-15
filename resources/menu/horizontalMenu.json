@@ -13,6 +13,13 @@
       "name": "Pengguna",
       "slug": "pages-user",
       "role": "super admin"
-    }
+    },
+    {
+        "url": "/dashboard/settings",
+        "icon": "menu-icon tf-icons ri-settings-line",
+        "name": "Pengaturan",
+        "slug": "pages-setting",
+        "role": "super admin"
+      }
   ]
 }

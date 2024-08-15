@@ -24,12 +24,27 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/util.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/main.css') }}">
+    <style>
+        .logo-img {
+            max-width: 100%;
+            max-height: 400px;
+            /* Set the desired max height */
+            width: auto;
+            height: auto;
+        }
+    </style>
 </head>
 
 <body>
     <div class="limiter">
         <div class="container-table100">
             <div class="wrap-table100">
+                <div class="container d-flex justify-content-center">
+                    @if ($settings)
+                        <img src="{{ Storage::url($settings->logo_url) }}" alt="Centered Image"
+                            class="img-fluid logo-img mb-5">
+                    @endif
+                </div>
                 <div class="table100">
                     <table>
                         <thead>

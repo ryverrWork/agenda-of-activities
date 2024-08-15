@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\ProfileController;
+use App\Http\Controllers\Dashboard\SettingController;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\ActivityController;
 use App\Http\Controllers\Dashboard\IndexController;
@@ -45,6 +46,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/', [ProfileController::class, 'index'])->name('index');
 
         Route::post('store', [ProfileController::class, 'store'])->name('store');
+
+    });
+
+    Route::middleware(['role:super admin'])->prefix('settings')->name('settings.')->group(function () {
+        Route::get('/', [SettingController::class, 'index'])->name('index');
+
+        Route::post('store', [SettingController::class, 'store'])->name('store');
 
     });
 });

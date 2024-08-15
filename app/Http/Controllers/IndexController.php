@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Activity;
+use App\Models\Setting;
 use Illuminate\View\View;
 
 class IndexController extends Controller
@@ -12,10 +13,12 @@ class IndexController extends Controller
      */
     public function index(): View
     {
-        $activities = Activity::where('status', 'approved')->orderBy('date', 'desc')->get();
+        $settings = Setting::find(1);
+        $activities = Activity::where('status', 'approved')->orderBy('date', 'asc')->get();
 
         return view('index', [
-            'activities' => $activities
+            'activities' => $activities,
+            'settings' => $settings
         ]);
     }
 }
