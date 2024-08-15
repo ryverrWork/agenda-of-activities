@@ -14,7 +14,7 @@ class IndexController extends Controller
     public function index(): View
     {
         $settings = Setting::find(1);
-        $activities = Activity::where('status', 'approved')->orderBy('date', 'asc')->get();
+        $activities = Activity::where('status', 'approved')->orderBy('date', 'asc')->orderBy('time', 'asc')->get();
 
         return view('index', [
             'activities' => $activities,
