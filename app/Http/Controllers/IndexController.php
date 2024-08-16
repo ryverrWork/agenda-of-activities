@@ -23,7 +23,7 @@ class IndexController extends Controller
 
     public function data()
     {
-        $query = Activity::where('status', 'approved')
+        $query = Activity::with('approvedBy')->where('status', 'approved')
             ->where(function ($query) {
                 $query->where('date', '>', now('Asia/Jakarta')->toDateString())
                     ->orWhere(function ($query) {

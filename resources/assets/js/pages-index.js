@@ -25,10 +25,13 @@ $(function () {
                 { data: "person_in_charge" },
                 { data: "phone_number" },
                 {
-                    data: "status",
+                    data: "file_url",
                     render: function (data, type, row) {
-                        // Use ucfirst to capitalize the first letter
-                        return data.charAt(0).toUpperCase() + data.slice(1);
+                        return (
+                            '<a href="/storage/' +
+                            data +
+                            '" download>Download</a>'
+                        );
                     },
                 },
                 {
