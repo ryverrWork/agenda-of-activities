@@ -1,30 +1,42 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts/blankLayout')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@section('title', 'Kegiatan')
 
-    <title>{{ config('variables.templateName') ? config('variables.templateName') : 'TemplateName' }}</title>
-    <meta name="description"
-        content="{{ config('variables.templateDescription') ? config('variables.templateDescription') : '' }}" />
-    <meta name="keywords" content="{{ config('variables.templateKeyword') ? config('variables.templateKeyword') : '' }}">
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon/favicon.ico') }}" />
+@section('vendor-style')
+    @vite(['resources/assets/vendor/libs/@form-validation/form-validation.scss'])
+@endsection
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+@section('page-style')
+    @vite(['resources/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.scss', 'resources/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.scss', 'resources/assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.scss', 'resources/assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.scss', 'resources/assets/vendor/scss/pages/page-auth.scss'])
+@endsection
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}">
+@section('vendor-script')
+    @vite(['resources/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js'])
+@endsection
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/animate.css') }}">
+@section('page-script')
+    @vite(['resources/assets/js/pages-index.js'])
+@endsection
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/perfect-scrollbar.css') }}">
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/util.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/main.css') }}">
+@section('content')
     <style>
+        .authentication-wrapper {
+            display: block;
+        }
+
+        @media (max-width: 992px) {
+            .authentication-wrapper {
+                background-color: #bfe3ff;
+            }
+        }
+
+        .table-wrapper {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+
         .logo-img {
             max-width: 100%;
             max-height: 400px;
@@ -32,74 +44,46 @@
             width: auto;
             height: auto;
         }
-    </style>
-</head>
 
-<body>
-    <div class="limiter">
-        <div class="container-table100">
-            <div class="wrap-table100">
-                <div class="container d-flex justify-content-center">
-                    @if ($settings)
-                        <img src="{{ Storage::url($settings->logo_url) }}" alt="Centered Image"
-                            class="img-fluid logo-img mb-3">
-                    @endif
-                </div>
-                <div class="table100">
-                    <table>
-                        <thead>
-                            <tr class="table100-head">
-                                <th class="column1">Tanggal</th>
-                                <th class="column2">Hari</th>
-                                <th class="column3">Jam</th>
-                                <th class="column4">Kegiatan</th>
-                                <th class="column5">Lokasi</th>
-                                <th class="column6">PIC</th>
-                                <th class="column7">No HP</th>
-                                <th class="column8">Undangan</th>
-                                <th class="column9">Ditinjau Oleh</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($activities as $activity)
+        .card {
+            border-radius: 0;
+        }
+
+        .authentication-image {
+            inset-block-end: 0 !important;
+        }
+    </style>
+
+    <div class="position-relative">
+        <div class="authentication-wrapper authentication-basic container-p-y p-4 p-sm-0">
+            <div class="d-flex justify-content-center">
+                @if ($settings)
+                    <img src="{{ Storage::url($settings->logo_url) }}" alt="Centered Image" class="img-fluid logo-img mb-3">
+                @endif
+            </div>
+            <img alt="mask" src="{{ asset('assets/img/background.jpg') }}"
+                class="authentication-image d-none d-lg-block" />
+            <div class="table-wrapper">
+                <div class="card">
+                    <div class="card-datatable pt-0">
+                        <table class="datatables-basic table table-bordered table-responsive">
+                            <thead>
                                 <tr>
-                                    <td class="column1">{{ $activity->date }}</td>
-                                    <td class="column2">{{ $activity->day }}</td>
-                                    <td class="column3">{{ $activity->time }}</td>
-                                    <td class="column4">{{ $activity->name }}</td>
-                                    <td class="column5">{{ $activity->location }}</td>
-                                    <td class="column6">{{ $activity->person_in_charge }}
-                                    </td>
-                                    <td class="column7">{{ $activity->phone_number }}</td>
-                                    <td class="column8"><a href="{{ asset('storage/' . $activity->file_url) }}"
-                                            download="{{ basename($activity->file_url) }}" title="Download">
-                                            <i class="ri-download-line"></i> Download
-                                        </a></td>
-                                    <td class="column9">{{ $activity->approvedBy->name }}</td>
+                                    <th>Tanggal</th>
+                                    <th>Hari</th>
+                                    <th>Jam</th>
+                                    <th>Kegiatan</th>
+                                    <th>Lokasi</th>
+                                    <th>PIC</th>
+                                    <th>No HP</th>
+                                    <th>Undangan</th>
+                                    <th>Ditinjau Oleh</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</body>
-<script src="{{ asset('assets/js/jquery-3.2.1.min.js') }}"></script>
-
-<script src="{{ asset('assets/js/popper.js') }}"></script>
-<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-
-<script src="{{ asset('assets/js/perfect-scrollbar.min.js') }}"></script>
-
-<script>
-    $('.js-pscroll').each(function() {
-        var ps = new PerfectScrollbar(this);
-
-        $(window).on('resize', function() {
-            ps.update();
-        })
-    });
-</script>
-
-</html>
+@endsection

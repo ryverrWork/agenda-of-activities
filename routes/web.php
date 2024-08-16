@@ -5,6 +5,7 @@ use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [IndexController::class, 'index']);
+Route::get('/data', [IndexController::class, 'data']);
 
 Route::prefix('dashboard')->middleware('guest')->group(function () {
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
