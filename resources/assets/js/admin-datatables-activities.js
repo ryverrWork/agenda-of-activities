@@ -28,8 +28,10 @@ $(function () {
                 { data: "time" },
                 { data: "name" },
                 { data: "location" },
+                { data: "number_of_participants" },
                 { data: "person_in_charge" },
                 { data: "phone_number" },
+                { data: "notes" },
                 {
                     data: "status",
                     render: function (data, type, row) {
@@ -112,7 +114,7 @@ $(function () {
                             text: '<i class="ri-printer-line me-1" ></i>Print',
                             className: "dropdown-item",
                             exportOptions: {
-                                columns: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+                                columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
                             },
                             customize: function (win) {
                                 //customize print view for dark
@@ -139,7 +141,7 @@ $(function () {
                             text: '<i class="ri-file-text-line me-1" ></i>Csv',
                             className: "dropdown-item",
                             exportOptions: {
-                                columns: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+                                columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
                             },
                         },
                         {
@@ -147,7 +149,7 @@ $(function () {
                             text: '<i class="ri-file-excel-line me-1"></i>Excel',
                             className: "dropdown-item",
                             exportOptions: {
-                                columns: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+                                columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
                             },
                         },
                         {
@@ -155,7 +157,7 @@ $(function () {
                             text: '<i class="ri-file-pdf-line me-1"></i>Pdf',
                             className: "dropdown-item",
                             exportOptions: {
-                                columns: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+                                columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
                             },
                         },
                     ],

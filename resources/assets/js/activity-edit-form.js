@@ -56,6 +56,16 @@
                     },
                 },
             },
+            number_of_participants: {
+                validators: {
+                    notEmpty: {
+                        message: "Jumlah peserta harus diisi",
+                    },
+                    numeric: {
+                        message: "Jumlah peserta harus angka",
+                    },
+                },
+            },
             pic: {
                 validators: {
                     notEmpty: {

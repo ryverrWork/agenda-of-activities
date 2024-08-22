@@ -25,10 +25,15 @@ document.addEventListener("DOMContentLoaded", function (e) {
                             ""),
                         (offCanvasElement.querySelector(".dt-location").value =
                             ""),
+                        (offCanvasElement.querySelector(
+                            ".dt-number-of-participants",
+                        ).value = ""),
                         (offCanvasElement.querySelector(".dt-pic").value = ""),
                         (offCanvasElement.querySelector(
                             ".dt-phone-number",
                         ).value = ""),
+                        (offCanvasElement.querySelector(".dt-notes").value =
+                            ""),
                         (offCanvasElement.querySelector(".dt-file").value = "");
                     // Open offCanvas with form
                     offCanvasEl.show();
@@ -75,6 +80,16 @@ document.addEventListener("DOMContentLoaded", function (e) {
                     validators: {
                         notEmpty: {
                             message: "Lokasi harus diisi",
+                        },
+                    },
+                },
+                number_of_participants: {
+                    validators: {
+                        notEmpty: {
+                            message: "Jumlah peserta harus diisi",
+                        },
+                        numeric: {
+                            message: "Jumlah peserta harus angka",
                         },
                     },
                 },
@@ -181,8 +196,10 @@ $(function () {
                 { data: "time" },
                 { data: "name" },
                 { data: "location" },
+                { data: "number_of_participants" },
                 { data: "person_in_charge" },
                 { data: "phone_number" },
+                { data: "notes" },
                 {
                     data: "status",
                     render: function (data, type, row) {

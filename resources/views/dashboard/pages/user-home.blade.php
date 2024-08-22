@@ -30,8 +30,10 @@
                         <th>Jam</th>
                         <th>Kegiatan</th>
                         <th>Lokasi</th>
+                        <th>Jumlah Peserta</th>
                         <th>PIC</th>
                         <th>No HP</th>
+                        <th>Keterangan</th>
                         <th>Status</th>
                         <th>Ditinjau Oleh</th>
                         <th></th>
@@ -105,6 +107,19 @@
 
                 <div class="col-sm-12">
                     <div class="input-group input-group-merge">
+                        <span id="number_of_participants2" class="input-group-text"><i
+                                class="ri-group-line ri-18px"></i></span>
+                        <div class="form-floating form-floating-outline">
+                            <input type="number" id="number_of_participants" class="form-control dt-number-of-participants"
+                                name="number_of_participants" placeholder="20" aria-label="number_of_participants"
+                                aria-describedby="number_of_participants2" />
+                            <label for="number_of_participants">Jumlah Peserta</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="input-group input-group-merge">
                         <span id="pic2" class="input-group-text"><i class="ri-user-line ri-18px"></i></span>
                         <div class="form-floating form-floating-outline">
                             <input type="text" id="pic" class="form-control dt-pic" name="pic"
@@ -122,6 +137,17 @@
                                 name="phone_number" placeholder="08172777777" aria-label="phone_number"
                                 aria-describedby="phone_number2" />
                             <label for="phone_number">No HP</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="input-group input-group-merge">
+                        <span id="notes2" class="input-group-text"><i class="ri-sticky-note-line ri-18px"></i></span>
+                        <div class="form-floating form-floating-outline">
+                            <input type="text" id="notes" class="form-control dt-notes" name="notes"
+                                placeholder="Keterangan" aria-label="notes" aria-describedby="notes2" />
+                            <label for="notes">Keterangan</label>
                         </div>
                     </div>
                 </div>

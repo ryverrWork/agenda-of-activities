@@ -57,6 +57,11 @@
                             <label for="location">Lokasi</label>
                         </div>
                         <div class="form-floating form-floating-outline mb-6">
+                            <input type="number" id="number_of_participants" name="number_of_participants"
+                                class="form-control" placeholder="20" value="{{ $activity->number_of_participants }}" />
+                            <label for="number_of_participants">Jumlah Peserta</label>
+                        </div>
+                        <div class="form-floating form-floating-outline mb-6">
                             <input type="text" id="pic" name="pic" class="form-control" placeholder="Budi"
                                 value="{{ $activity->person_in_charge }}" />
                             <label for="pic">PIC</label>
@@ -65,6 +70,11 @@
                             <input type="text" id="phone_number" name="phone_number" class="form-control"
                                 placeholder="08172777777" value="{{ $activity->phone_number }}" />
                             <label for="phone_number">No HP</label>
+                        </div>
+                        <div class="form-floating form-floating-outline mb-6">
+                            <input type="text" id="notes" name="notes" class="form-control"
+                                placeholder="Keterangan" value="{{ $activity->notes }}" />
+                            <label for="notes">Keterangan</label>
                         </div>
                         <div class="form-floating form-floating-outline mb-6">
                             <input type="file" id="file" class="form-control" name="file" />

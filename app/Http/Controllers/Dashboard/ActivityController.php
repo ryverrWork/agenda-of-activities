@@ -40,8 +40,10 @@ class ActivityController extends Controller
             'time' => $request->time,
             'name' => $request->activity,
             'location' => $request->location,
+            'number_of_participants' => $request->number_of_participants,
             'person_in_charge' => $request->pic,
             'phone_number' => $request->phone_number,
+            'notes' => $request->notes,
             'file_url' => $path,
             'status' => 'pending'
         ]);
@@ -81,8 +83,10 @@ class ActivityController extends Controller
         $activity->time = $request->time;
         $activity->name = $request->activity;
         $activity->location = $request->location;
+        $activity->number_of_participants = $request->number_of_participants;
         $activity->person_in_charge = $request->pic;
         $activity->phone_number = $request->phone_number;
+        $activity->notes = $request->notes;
 
         if ($request->hasFile('file')) {
             $file = $request->file('file');

@@ -22,8 +22,10 @@ $(function () {
                 { data: "time" },
                 { data: "name" },
                 { data: "location" },
+                { data: "number_of_participants" },
                 { data: "person_in_charge" },
                 { data: "phone_number" },
+                { data: "notes" },
                 {
                     data: "file_url",
                     render: function (data, type, row) {

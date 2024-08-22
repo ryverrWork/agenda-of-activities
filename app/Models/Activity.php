@@ -17,8 +17,10 @@ class Activity extends Model
         'time',
         'name',
         'location',
+        'number_of_participants',
         'person_in_charge',
         'phone_number',
+        'notes',
         'status',
         'file_url',
         'approved_by'

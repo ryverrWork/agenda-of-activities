@@ -17,8 +17,10 @@ return new class extends Migration {
             $table->time('time');
             $table->string('name');
             $table->text('location');
+            $table->integer('number_of_participants');
             $table->string('person_in_charge');
             $table->string('phone_number');
+            $table->text('notes')->nullable();
             $table->enum('status', ['pending', 'approved', 'rejected']);
             $table->text('file_url');
             $table->foreignId('approved_by')->nullable()->constrained('users');

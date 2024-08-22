@@ -74,8 +74,10 @@
                                     <th>Jam</th>
                                     <th>Kegiatan</th>
                                     <th>Lokasi</th>
+                                    <th>Jumlah Peserta</th>
                                     <th>PIC</th>
                                     <th>No HP</th>
+                                    <th>Keterangan</th>
                                     <th>Undangan</th>
                                     <th>Ditinjau Oleh</th>
                                 </tr>
